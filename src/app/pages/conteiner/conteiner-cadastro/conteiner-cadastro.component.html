@@ -3,65 +3,51 @@
 
 <app-sidebar>
 
-<!-- MAIN -->
-<div class="col pt-3">
-  <!--
-              <h1>
-                  Collapsing Menu
-                  <small class="text-muted">Version 2.1</small>
-              </h1> -->
-
-
-              <div class="card">
-                  <h4 class="card-header text-center">Cadastro de Conteiner</h4>
-                  <div class="card-body">
-                       <!-- FORM -->
-                  <form class="container">
-                      <div class="form-row">
-                          <div class="form-group col-md-6">
-                              <label for="inputEmail4">Cliente</label>
-                              <input type="text" class="form-control" id="inputEmail4" placeholder="Cliente">
-                          </div>
-                          <div class="form-group col-md-6">
-                              <label for="inputPassword4">Codigo Conteiner</label>
-                              <input type="text" class="form-control" id="inputPassword4" placeholder="Codigo Conteiner">
-                          </div>
-                      </div>
-
-                      <div class="form-row">
-                          <div class="form-group col-md-4">
-                              <label for="inputState">Tipo Conteiner</label>
-                              <select id="inputState" class="form-control">
-                                  <option selected>Selecione...</option>
-                                  <option>...</option>
-                              </select>
-                          </div>
-                          <div class="form-group col-md-4">
-                              <label for="inputState">Status</label>
-                              <select id="inputState" class="form-control">
-                                  <option selected>Selecione...</option>
-                                  <option>...</option>
-                              </select>
-                          </div>
-                          <div class="form-group col-md-4">
-                              <label for="inputState">Categoria</label>
-                              <select id="inputState" class="form-control">
-                                  <option selected>Selecione...</option>
-                                  <option>...</option>
-                              </select>
-                          </div>
-                      </div>
-
-                      <button type="submit" class="btn btn-primary">Salvar</button>
-                  </form>
-                  </div>
-              </div>
-
-
-
+  <!-- conteudo ng-content -->
+  <div class="card">
+    <h4 class="card-header text-center">Cadastro de Conteiner</h4>
+    <div class="card-body">
+      <!-- FORM -->
+      <form class="container">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Cliente</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Cliente">
           </div>
-          <!-- Main Col END -->
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Codigo Conteiner</label>
+            <input type="text" class="form-control" id="inputPassword4" placeholder="Codigo Conteiner">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputState">Tipo Conteiner</label>
+            <select id="inputState" class="form-control">
+              <option selected>Selecione...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Status</label>
+            <select id="inputState" class="form-control">
+              <option selected>Selecione...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Categoria</label>
+            <select id="inputState" class="form-control">
+              <option selected>Selecione...</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+    </div>
+  </div>
+  <!-- fim conteudo ng-content -->
 
 </app-sidebar>
-
-
