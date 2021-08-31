@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/script_sidebar.js",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/script_sidebar.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
