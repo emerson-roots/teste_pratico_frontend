@@ -1,1 +1,52 @@
-<p>movimentacao-cadastro works!</p>
+<app-navbar></app-navbar>
+
+
+<app-sidebar>
+
+  <!-- conteudo ng-content -->
+  <div class="card">
+    <h4 class="card-header text-center">Cadastro de Movimentações de Conteiners</h4>
+    <div class="card-body">
+
+      <section>
+        <div>
+            <!-- FORM -->
+            <form class="container">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Data e Hora Inicio</label>
+                        <input type="date" class="form-control" id="inputEmail4" placeholder="Cliente">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Data e Hora Fim</label>
+                        <input type="date" class="form-control" id="inputPassword4" placeholder="Codigo Conteiner">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Conteiner</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Selecione...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Tipo Movimentação</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Selecione...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+
+    </section>
+    </div>
+  </div>
+  <!-- fim conteudo ng-content -->
+
+</app-sidebar>
