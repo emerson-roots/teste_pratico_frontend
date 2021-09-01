@@ -11,6 +11,7 @@ import { MovimentacaoListaComponent } from './pages/movimentacoes-conteiner/movi
 import { SidebarComponent } from './page-fragments/sidebar/sidebar.component';
 import { NavbarComponent } from './page-fragments/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, // necessario para form group/ form builder
+    ReactiveFormsModule // necessario para form group/ form builder
   ],
   providers: [
     ConteinerService

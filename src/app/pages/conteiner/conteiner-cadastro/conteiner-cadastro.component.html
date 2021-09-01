@@ -8,43 +8,51 @@
     <h4 class="card-header text-center">Cadastro de Conteiner</h4>
     <div class="card-body">
       <!-- FORM -->
-      <form class="container">
+      <form class="container" [formGroup]="formGroup">
         <div class="form-row">
+
+          <!-- cliente -->
           <div class="form-group col-md-6">
-            <label for="inputEmail4">Cliente</label>
-            <input type="text" class="form-control" id="inputEmail4" placeholder="Cliente">
+            <label for="nome">Cliente</label>
+            <input type="text" class="form-control" formControlName="cliente" id="cliente" placeholder="Cliente">
           </div>
+          <!-- codigoConteiner -->
           <div class="form-group col-md-6">
-            <label for="inputPassword4">Codigo Conteiner</label>
-            <input type="text" class="form-control" id="inputPassword4" placeholder="Codigo Conteiner">
+            <label for="codigoConteiner">Codigo Conteiner</label>
+            <input maxlength="11" type="text" class="form-control" formControlName="codigoConteiner"
+              id="codigoConteiner" placeholder="Codigo Conteiner">
           </div>
         </div>
 
+        <!-- tipoConteiner -->
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputState">Tipo Conteiner</label>
-            <select id="inputState" class="form-control">
+            <label for="tipoConteiner">Tipo Conteiner</label>
+            <select formControlName="tipoConteiner" id="tipoConteiner" class="form-control">
               <option selected>Selecione...</option>
               <option>...</option>
             </select>
           </div>
+          <!-- status -->
           <div class="form-group col-md-4">
-            <label for="inputState">Status</label>
-            <select id="inputState" class="form-control">
+            <label for="status">Status</label>
+            <select formControlName="status" id="status" class="form-control">
               <option selected>Selecione...</option>
               <option>...</option>
             </select>
           </div>
+          <!-- categoria -->
           <div class="form-group col-md-4">
-            <label for="inputState">Categoria</label>
-            <select id="inputState" class="form-control">
+            <label for="categoria">Categoria</label>
+            <select formControlName="categoria" id="categoria" class="form-control">
               <option selected>Selecione...</option>
               <option>...</option>
             </select>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <input type="hidden" id="id" name="id" value="" />
+        <button (click)="salvar()" type="submit" class="btn btn-primary">Salvar</button>
       </form>
     </div>
   </div>

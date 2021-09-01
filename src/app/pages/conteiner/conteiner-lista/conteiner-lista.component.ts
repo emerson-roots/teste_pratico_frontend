@@ -25,7 +25,7 @@ export class ConteinerListaComponent implements OnInit {
         console.log(this.conteinerDTO)
       },
         error => {
-          console.log("Ocorreu um erro ao listar conteiners. Erro: " + error);
+          console.log("Ocorreu um erro ao listar conteiners. Erro: " + JSON.stringify(error));
         });
   }
 
