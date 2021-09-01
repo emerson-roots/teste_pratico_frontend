@@ -1,13 +1,15 @@
 <!-- Bootstrap row -->
-<div class="row" id="body-row">
+<div onselectstart="return false" class="row" id="body-row">
   <!-- Sidebar -->
-  <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
-    <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+  <div [ngClass]="toggle ? 'sidebar-expanded' : 'sidebar-collapsed'" id="sidebar-container"
+    class="sidebar-expanded d-none d-md-block">
+    <!-- d-* esconde o sidebar em dispositivos pequenos (mobiles por exemplo) -->
     <!-- Bootstrap List Group -->
     <ul class="list-group">
       <!-- Separator with title -->
-      <li class="list-group-item sidebar-separator-title text-warning d-flex align-items-center menu-collapsed">
-        <small>MAIN MENU</small>
+      <li [ngClass]="toggle ? '' : 'd-none'"
+        class="list-group-item sidebar-separator-title text-warning d-flex align-items-center menu-collapsed">
+        <small>MENU</small>
       </li>
       <!-- /END Separator -->
       <!-- Menu with submenu -->
@@ -15,12 +17,12 @@
         class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-start align-items-center">
           <span class="fa fa-fw mr-4"><i class="fa fa-truck fa-2x"></i></span>
-          <span class="menu-collapsed">Conteiner</span>
+          <span [ngClass]="toggle ? '' : 'd-none'" class="menu-collapsed">Conteiner</span>
           <span class="submenu-icon ml-auto"></span>
         </div>
       </a>
       <!-- Submenu content -->
-      <div id='submenu1' class="collapse sidebar-submenu">
+      <div [ngClass]="toggle ? '' : 'd-none'" id='submenu1' class="collapse sidebar-submenu">
         <a href="/" class="list-group-item list-group-item-action bg-dark text-white">
           <span class="menu-collapsed"><i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</span>
         </a>
@@ -32,12 +34,12 @@
         class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-start align-items-center">
           <span class="fa fa-fw mr-4"><i class="fa fa-road fa-2x" aria-hidden="true"></i></span>
-          <span class="menu-collapsed">Movimentações de Conteiner</span>
+          <span [ngClass]="toggle ? '' : 'd-none'" class="menu-collapsed">Movimentações de Conteiner</span>
           <span class="submenu-icon ml-auto"></span>
         </div>
       </a>
       <!-- Submenu content -->
-      <div id='submenu2' class="collapse sidebar-submenu">
+      <div [ngClass]="toggle ? '' : 'd-none'" id='submenu2' class="collapse sidebar-submenu">
         <a href="/movimentacao/cadastrar" class="list-group-item list-group-item-action bg-dark text-white">
           <span class="menu-collapsed"><i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</span>
         </a>
@@ -47,21 +49,23 @@
       </div>
 
 
-      <a href="#" data-toggle="sidebar-colapse"
+      <a (click)="toggleClass()" title="Abre ou fecha a aba de menu" data-toggle="sidebar-colapse"
         class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
         <div class="d-flex w-100 justify-content-start align-items-center">
-          <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-          <span id="collapse-text" class="menu-collapsed">Collapse</span>
+          <span [ngClass]="toggle ? 'fa-angle-double-left' : 'fa-angle-double-right'" id="collapse-icon"
+            class="fa fa-4x mr-2"></span>
+          <span [ngClass]="toggle ? '' : 'd-none'" id="collapse-text" class="menu-collapsed">Esconder Menu</span>
         </div>
       </a>
     </ul>
     <!-- List Group END-->
 
   </div>
-  <!-- sidebar-container END -->
-
 
   <!-- conteudo MAIN das paginas -->
   <div class="col pt-3">
     <ng-content></ng-content>
   </div>
+
+  <!-- sidebar-container END -->
+</div>
