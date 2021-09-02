@@ -13,14 +13,16 @@
 
           <!-- cliente -->
           <div class="form-group col-md-6">
-            <label for="nome">Cliente</label>
+            <label for="cliente">Cliente</label>
             <input type="text" class="form-control" formControlName="cliente" id="cliente" placeholder="Cliente">
+            <p class="danger" *ngIf="formGroup.controls.cliente.dirty && formGroup.controls.cliente.errors" margin-left>Preenchimento obrigatório ou valor inválido.</p>
           </div>
           <!-- codigoConteiner -->
           <div class="form-group col-md-6">
             <label for="codigoConteiner">Codigo Conteiner</label>
             <input maxlength="11" type="text" class="form-control" formControlName="codigoConteiner"
               id="codigoConteiner" placeholder="Codigo Conteiner">
+              <p class="danger" *ngIf="formGroup.controls.codigoConteiner.dirty && formGroup.controls.codigoConteiner.errors" margin-left>Preenchimento obrigatório no padrão 4 letras maiúsculas e 7 números.</p>
           </div>
         </div>
 
@@ -32,6 +34,7 @@
               <option value="">Selecione...</option>
               <option *ngFor="let tipo of tiposConteiner" [ngValue]="tipo">{{ tipo }}</option>
             </select>
+            <p class="danger" *ngIf="formGroup.controls.tipoConteiner.dirty && formGroup.controls.tipoConteiner.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
           </div>
           <!-- status -->
           <div class="form-group col-md-4">
@@ -40,6 +43,7 @@
               <option value="">Selecione...</option>
               <option *ngFor="let stat of status" [ngValue]="stat">{{ stat }}</option>
             </select>
+            <p class="danger" *ngIf="formGroup.controls.status.dirty && formGroup.controls.status.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
           </div>
           <!-- categoria -->
           <div class="form-group col-md-4">
@@ -48,6 +52,7 @@
               <option value="">Selecione...</option>
               <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{ categoria }}</option>
             </select>
+            <p class="danger" *ngIf="formGroup.controls.categoria.dirty && formGroup.controls.categoria.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
           </div>
         </div>
 

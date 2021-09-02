@@ -50,13 +50,13 @@ export class ConteinerCadastroComponent implements OnInit {
 
   }
 
-  preEdit(){
+  preEdit() {
     //captura id na URL conforme parametro especificado na rota
     const conteinerEdit = this.actRoute.snapshot.data['conteinerResolverDTO'];
     console.log(conteinerEdit);
 
     //verifica se contém um usuario valido
-    if(conteinerEdit){
+    if (conteinerEdit) {
 
       this.conteinerDTO = conteinerEdit;
 
@@ -64,6 +64,7 @@ export class ConteinerCadastroComponent implements OnInit {
       this.formGroup.patchValue(this.conteinerDTO);
     }
   }
+
 
   // salvar serve para POST e para PUT
   salvar() {
@@ -88,10 +89,25 @@ export class ConteinerCadastroComponent implements OnInit {
           alert("Ocorreu um erro ao tentar inserir Conteiner. Erro: " + JSON.stringify(error));
         });
     } else {
-      alert("O formulário está invalido. Preencha os campos.");
+      this.marcaCampoComoModificado(this.formGroup);
     }
 
   }
+
+
+  marcaCampoComoModificado(form: FormGroup) {
+
+    Object.keys(form.controls)
+      .forEach(campoIterado => {
+
+        const controle = form.get(campoIterado);
+
+        controle?.markAsDirty();
+        controle?.markAsTouched();
+
+      });
+  }
+
 
   getTiposConteiner() {
     return this.conteinerService.getTiposConteiner()
