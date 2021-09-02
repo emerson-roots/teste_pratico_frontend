@@ -46,10 +46,13 @@
         <a href="/movimentacao/listar" class="list-group-item list-group-item-action bg-dark text-white">
           <span class="menu-collapsed"><i class="fa fa-list-ol" aria-hidden="true"></i> Listar</span>
         </a>
+        <a href="/movimentacao/relatorio" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed"><i class="fa fa-file-text-o" aria-hidden="true"></i> Relatório</span>
+        </a>
       </div>
 
 
-      <a (click)="toggleClass()" title="Abre ou fecha a aba de menu" data-toggle="sidebar-colapse"
+      <a (click)="hideOrShow()" title="Abre ou fecha a aba de menu" data-toggle="sidebar-colapse"
         class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
         <div class="d-flex w-100 justify-content-start align-items-center">
           <span [ngClass]="toggle ? 'fa-angle-double-left' : 'fa-angle-double-right'" id="collapse-icon"

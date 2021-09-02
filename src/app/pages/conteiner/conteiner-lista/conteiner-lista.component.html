@@ -31,7 +31,7 @@
               <td>{{ conteiners.categoria }}</td>
               <td>
                 <button type="button" class="btn btn-info btn-sm">Alterar</button>
-                <button type="button" class="btn btn-danger btn-sm">Deletar</button>
+                <button (click)="delete( conteiners.id )" type="button" class="btn btn-danger btn-sm">Deletar</button>
               </td>
           </tr>
           </tbody>

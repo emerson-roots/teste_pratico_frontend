@@ -29,4 +29,18 @@ export class ConteinerListaComponent implements OnInit {
         });
   }
 
+  delete(id: any) {
+    this.conteinerService.delete(id)
+      .subscribe(() => {
+        this.findAll();
+        alert("Conteiner excluído com sucesso!");
+      }, error => {
+        alert("Ocorreu um erro ao excluir o Conteiner. Erro: " + JSON.stringify(error.error))
+      });
+  }
+
+  // edit(id: number) {
+  //   this.router.navigate(['conteiner/editar', id])
+  // }
+
 }

@@ -12,10 +12,10 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.toggleClass();
+    this.hideOrShow();
   }
 
- toggleClass(){
+ hideOrShow(){
    this.toggle  = !this.toggle;
  }
 

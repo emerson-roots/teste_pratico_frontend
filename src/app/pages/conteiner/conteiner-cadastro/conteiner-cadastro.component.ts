@@ -64,7 +64,7 @@ export class ConteinerCadastroComponent implements OnInit {
           alert("Ocorreu um erro ao tentar inserir Conteiner. Erro: " + JSON.stringify(error));
         });
     } else {
-      alert("Ocorreu um erro ao tentar inserir Conteiner. Erro: ");
+      alert("O formulário está invalido. Preencha os campos.");
     }
 
   }
