@@ -2,6 +2,8 @@ import { ConteinerService } from './../../../services/conteiner.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConteinerDTO } from 'src/app/dto/conteiner.dto';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,10 +18,14 @@ export class ConteinerCadastroComponent implements OnInit {
   status!: string[];
   categorias!: string[];
 
+  // usado no pre edit para update
+  conteinerDTO!: ConteinerDTO;
+
 
   constructor(
     private formBuilder: FormBuilder,
-    private conteinerService: ConteinerService) {
+    private conteinerService: ConteinerService,
+    private actRoute: ActivatedRoute) {
 
     const nonWhiteSpaceRegExp: RegExp = new RegExp("\\S");
     const patternCodigoConteiner: RegExp = new RegExp("[A-Z]{4}[0-9]{7}");
@@ -40,8 +46,26 @@ export class ConteinerCadastroComponent implements OnInit {
     this.getTiposConteiner();
     this.getStatusConteiner();
     this.getCategoriasConteiner();
+    this.preEdit();
+
   }
 
+  preEdit(){
+    //captura id na URL conforme parametro especificado na rota
+    const conteinerEdit = this.actRoute.snapshot.data['conteinerResolverDTO'];
+    console.log(conteinerEdit);
+
+    //verifica se contém um usuario valido
+    if(conteinerEdit){
+
+      this.conteinerDTO = conteinerEdit;
+
+      //carrega dados no form para edição
+      this.formGroup.patchValue(this.conteinerDTO);
+    }
+  }
+
+  // salvar serve para POST e para PUT
   salvar() {
     console.log(this.formGroup.value)
 

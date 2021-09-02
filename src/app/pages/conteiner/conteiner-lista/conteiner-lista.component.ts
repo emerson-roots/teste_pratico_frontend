@@ -1,6 +1,7 @@
 import { ConteinerService } from './../../../services/conteiner.service';
 import { ConteinerDTO } from './../../../dto/conteiner.dto';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conteiner-lista',
@@ -11,7 +12,8 @@ export class ConteinerListaComponent implements OnInit {
 
   conteinerDTO!: ConteinerDTO[];
 
-  constructor(private conteinerService: ConteinerService) { }
+  constructor(private conteinerService: ConteinerService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -39,8 +41,8 @@ export class ConteinerListaComponent implements OnInit {
       });
   }
 
-  // edit(id: number) {
-  //   this.router.navigate(['conteiner/editar', id])
-  // }
+  edit(id: number) {
+    this.router.navigate(['conteiner/editar', id])
+  }
 
 }

@@ -12,6 +12,7 @@ import { SidebarComponent } from './page-fragments/sidebar/sidebar.component';
 import { NavbarComponent } from './page-fragments/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule // necessario para form group/ form builder
   ],
   providers: [
-    ConteinerService
+    ConteinerService,
+    ConteinerResolverGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
