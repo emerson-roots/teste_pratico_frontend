@@ -28,25 +28,25 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="tipoConteiner">Tipo Conteiner</label>
-            <select formControlName="tipoConteiner" id="tipoConteiner" class="form-control">
-              <option selected>Selecione...</option>
-              <option>...</option>
+            <select  formControlName="tipoConteiner" id="tipoConteiner" class="form-control">
+              <option value="">Selecione...</option>
+              <option *ngFor="let tipo of tiposConteiner" [ngValue]="tipo">{{ tipo }}</option>
             </select>
           </div>
           <!-- status -->
           <div class="form-group col-md-4">
             <label for="status">Status</label>
             <select formControlName="status" id="status" class="form-control">
-              <option selected>Selecione...</option>
-              <option>...</option>
+              <option value="">Selecione...</option>
+              <option *ngFor="let stat of status" [ngValue]="stat">{{ stat }}</option>
             </select>
           </div>
           <!-- categoria -->
           <div class="form-group col-md-4">
             <label for="categoria">Categoria</label>
             <select formControlName="categoria" id="categoria" class="form-control">
-              <option selected>Selecione...</option>
-              <option>...</option>
+              <option value="">Selecione...</option>
+              <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{ categoria }}</option>
             </select>
           </div>
         </div>

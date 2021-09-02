@@ -1,4 +1,4 @@
-import {  CONTEINER_API } from '../config/api.config';
+import { CONTEINER_API } from './../config/api.config';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
@@ -40,5 +40,17 @@ export class ConteinerService {
 
   loadById(id: any){
     return this.http.get(`${CONTEINER_API.baseUrl}/${id}`).pipe(take(1))
+  }
+
+  getTiposConteiner(){
+    return this.http.get(`${CONTEINER_API.baseUrl}/tipos_conteiner`).pipe(take(1))
+  }
+
+  getStatusConteiner(){
+    return this.http.get(`${CONTEINER_API.baseUrl}/status`).pipe(take(1))
+  }
+
+  getCategoriasConteiner(){
+    return this.http.get(`${CONTEINER_API.baseUrl}/categorias`).pipe(take(1))
   }
 }
