@@ -19,6 +19,10 @@
     display: block;
 }
 
+.input-error.ng-touched {
+  border: red 1px solid;
+}
+
 
 /* Sidebar sizes when expanded and expanded */
 

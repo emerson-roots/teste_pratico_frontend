@@ -14,45 +14,44 @@
           <!-- cliente -->
           <div class="form-group col-md-6">
             <label for="cliente">Cliente</label>
-            <input type="text" class="form-control" formControlName="cliente" id="cliente" placeholder="Cliente">
-            <p class="danger" *ngIf="formGroup.controls.cliente.dirty && formGroup.controls.cliente.errors" margin-left>Preenchimento obrigatório ou valor inválido.</p>
+            <input [ngClass]="{'input-error': formGroup.get('cliente')?.invalid}" type="text" class="form-control" formControlName="cliente" id="cliente" placeholder="Cliente">
+              <app-show-validation-errors [formCtrl]="formGroup.get('cliente')"></app-show-validation-errors>
           </div>
           <!-- codigoConteiner -->
           <div class="form-group col-md-6">
-            <label for="codigoConteiner">Codigo Conteiner</label>
-            <input maxlength="11" type="text" class="form-control" formControlName="codigoConteiner"
-              id="codigoConteiner" placeholder="Codigo Conteiner">
-              <p class="danger" *ngIf="formGroup.controls.codigoConteiner.dirty && formGroup.controls.codigoConteiner.errors" margin-left>Preenchimento obrigatório no padrão 4 letras maiúsculas e 7 números.</p>
+            <label for="codigoConteiner">Código Conteiner (4 letras maiúsculas e 7 números)</label>
+            <input mask="AAAA0000000"  [ngClass]="{'input-error': formGroup.get('codigoConteiner')?.invalid}" maxlength="11" type="text" class="form-control" formControlName="codigoConteiner"
+              id="codigoConteiner" placeholder="ABCD1234567">
+              <app-show-validation-errors [formCtrl]="formGroup.get('codigoConteiner')"></app-show-validation-errors>
           </div>
         </div>
-
         <!-- tipoConteiner -->
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="tipoConteiner">Tipo Conteiner</label>
-            <select  formControlName="tipoConteiner" id="tipoConteiner" class="form-control">
+            <select [ngClass]="{'input-error': formGroup.get('tipoConteiner')?.invalid}" formControlName="tipoConteiner" id="tipoConteiner" class="form-control">
               <option value="">Selecione...</option>
               <option *ngFor="let tipo of tiposConteiner" [ngValue]="tipo">{{ tipo }}</option>
             </select>
-            <p class="danger" *ngIf="formGroup.controls.tipoConteiner.dirty && formGroup.controls.tipoConteiner.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
+            <app-show-validation-errors [formCtrl]="formGroup.get('tipoConteiner')"></app-show-validation-errors>
           </div>
           <!-- status -->
           <div class="form-group col-md-4">
             <label for="status">Status</label>
-            <select formControlName="status" id="status" class="form-control">
+            <select [ngClass]="{'input-error': formGroup.get('status')?.invalid}"  formControlName="status" id="status" class="form-control">
               <option value="">Selecione...</option>
               <option *ngFor="let stat of status" [ngValue]="stat">{{ stat }}</option>
             </select>
-            <p class="danger" *ngIf="formGroup.controls.status.dirty && formGroup.controls.status.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
+            <app-show-validation-errors [formCtrl]="formGroup.get('status')"></app-show-validation-errors>
           </div>
           <!-- categoria -->
           <div class="form-group col-md-4">
             <label for="categoria">Categoria</label>
-            <select formControlName="categoria" id="categoria" class="form-control">
+            <select [ngClass]="{'input-error': formGroup.get('categoria')?.invalid}" formControlName="categoria" id="categoria" class="form-control">
               <option value="">Selecione...</option>
               <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{ categoria }}</option>
             </select>
-            <p class="danger" *ngIf="formGroup.controls.categoria.dirty && formGroup.controls.categoria.errors" margin-left>Preenchimento obrigatório. Selecione...</p>
+            <app-show-validation-errors [formCtrl]="formGroup.get('categoria')"></app-show-validation-errors>
           </div>
         </div>
 

@@ -33,7 +33,7 @@ export class ConteinerCadastroComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       id: [null],
       cliente: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(60), Validators.pattern(nonWhiteSpaceRegExp)]],
-      codigoConteiner: [null, [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern(patternCodigoConteiner)]],
+      codigoConteiner: [null, [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern(patternCodigoConteiner), Validators.pattern(nonWhiteSpaceRegExp)]],
       tipoConteiner: ['', [Validators.required]],
       status: ['', [Validators.required]],
       categoria: ['', [Validators.required]]

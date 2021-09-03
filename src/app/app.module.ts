@@ -13,6 +13,8 @@ import { NavbarComponent } from './page-fragments/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
+import { ShowValidationErrorsComponent } from './fragments/show-validation-errors/show-validation-errors.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -22,18 +24,22 @@ import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
     MovimentacaoCadastroComponent,
     MovimentacaoListaComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ShowValidationErrorsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     FormsModule, // necessario para form group/ form builder
-    ReactiveFormsModule // necessario para form group/ form builder
+    ReactiveFormsModule, // necessario para form group/ form builder
+    NgxMaskModule.forRoot({
+    })
   ],
   providers: [
     ConteinerService,
     ConteinerResolverGuard
+
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
