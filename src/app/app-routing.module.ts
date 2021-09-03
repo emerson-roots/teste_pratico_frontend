@@ -5,6 +5,7 @@ import { ConteinerListaComponent } from './pages/conteiner/conteiner-lista/conte
 import { ConteinerCadastroComponent } from './pages/conteiner/conteiner-cadastro/conteiner-cadastro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MovimentacaoConteinerResolverGuard } from './resolver-guard/movimentacao-conteiner-resolver';
 
 const routes: Routes = [
   { path: '', component: ConteinerCadastroComponent },
@@ -16,7 +17,13 @@ const routes: Routes = [
     }
   },
   { path: 'movimentacao/cadastrar', component: MovimentacaoCadastroComponent },
-  { path: 'movimentacao/listar', component: MovimentacaoListaComponent }
+  { path: 'movimentacao/listar', component: MovimentacaoListaComponent },
+  {
+    path: 'movimentacao/editar/:id', component: MovimentacaoCadastroComponent,
+    resolve: {
+      resolverMovimentacao: MovimentacaoConteinerResolverGuard
+    }
+  }
 ];
 
 @NgModule({

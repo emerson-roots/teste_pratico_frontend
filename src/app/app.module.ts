@@ -15,6 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
 import { ShowValidationErrorsComponent } from './page-fragments/show-validation-errors/show-validation-errors.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { MovimentacaoConteinerResolverGuard } from './resolver-guard/movimentacao-conteiner-resolver';
+import { MovimentacaoConteinerService } from './services/movimentacao-conteiner.service';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { NgxMaskModule } from 'ngx-mask';
   ],
   providers: [
     ConteinerService,
-    ConteinerResolverGuard
+    MovimentacaoConteinerService,
+    ConteinerResolverGuard,
+    MovimentacaoConteinerResolverGuard,
+    DatePipe
 
   ],
   bootstrap: [AppComponent],

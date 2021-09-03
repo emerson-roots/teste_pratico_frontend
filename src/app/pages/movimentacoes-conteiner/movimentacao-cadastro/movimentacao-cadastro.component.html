@@ -11,36 +11,42 @@
       <section>
         <div>
             <!-- FORM -->
-            <form class="container">
+            <form class="container" [formGroup]="formGroup">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Data e Hora Inicio</label>
-                        <input type="date" class="form-control" id="inputEmail4" placeholder="Cliente">
+                      <label for="dataHoraInicio">Data Hora Inicio</label>
+                      <input [ngClass]="{'input-error': formGroup.get('dataHoraInicio')?.invalid}" type="datetime-local" class="form-control" formControlName="dataHoraInicio" id="dataHoraInicio" placeholder="Data Hora Inicio">
+                        <app-show-validation-errors [formCtrl]="formGroup.get('dataHoraInicio')"></app-show-validation-errors>
                     </div>
+
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Data e Hora Fim</label>
-                        <input type="date" class="form-control" id="inputPassword4" placeholder="Codigo Conteiner">
+                        <label for="dataHoraFim">Data e Hora Fim</label>
+                        <input formControlName="dataHoraFim" type="datetime-local"class="form-control" id="dataHoraFim" value="" placeholder="Data Fim">
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputState">Conteiner</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Selecione...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputState">Tipo Movimentação</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Selecione...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="conteiner">Conteiner</label>
+                    <select formControlName="conteiner" id="conteiner" class="form-control" [compareWith]="compararConteiners">
+                        <option value="">Selecione...</option>
+                        <option *ngFor="let conteiners of conteinerDTO" [ngValue]="conteiners" >{{ conteiners.codigoConteiner }}</option>
+                    </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                    <div class="form-group col-md-6">
+                        <label for="tipoMovimentacao">Tipo Movimentação</label>
+                        <select formControlName="tipoMovimentacao" id="tipoMovimentacao" class="form-control">
+                            <option value="">Selecione...</option>
+                            <option *ngFor="let tipos of tipoMovimentacoes" [ngValue]="tipos">{{ tipos }}</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <input type="hidden" id="id" name="id" value="" />
+                <button (click)="salvar()" type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
 

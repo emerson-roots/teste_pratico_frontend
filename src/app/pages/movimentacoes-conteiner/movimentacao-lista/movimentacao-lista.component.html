@@ -21,42 +21,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Otto</td>
-              <td>
-                <button type="button" class="btn btn-info btn-sm">Alterar</button>
-                <button type="button" class="btn btn-danger btn-sm">Deletar</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Otto</td>
-              <td>
-                <button type="button" class="btn btn-info btn-sm">Alterar</button>
-                <button type="button" class="btn btn-danger btn-sm">Deletar</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Ogro</td>
-              <td>Man</td>
-              <td>@twitter</td>
-              <td>Otto</td>
-              <td>
-                <button title="Editar" type="button" class="btn btn-info btn-sm">
-                  <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
-                </button>
-                <button title="Deletar" type="button" class="btn btn-danger btn-sm">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-              </td>
+              <tr *ngFor="let movimentacoes of movimentacaoConteinerDTO">
+                <th scope="row">{{ movimentacoes.id }}</th>
+                <td>{{ movimentacoes.tipoMovimentacao }}</td>
+                <td>{{ movimentacoes.conteiner.codigoConteiner }}</td>
+                <td>{{ movimentacoes.dataHoraInicio }}</td>
+                <td>{{ movimentacoes.dataHoraFim }}</td>
+                <td>
+                  <button (click)="edit(movimentacoes.id)" title="Editar" type="button" class="btn btn-info btn-sm">
+                    <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+                  </button>
+                  <button (click)="delete(movimentacoes.id)" title="Deletar" type="button" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
             </tr>
           </tbody>
         </table>
