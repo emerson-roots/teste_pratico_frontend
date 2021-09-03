@@ -13,7 +13,7 @@ import { NavbarComponent } from './page-fragments/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
-import { ShowValidationErrorsComponent } from './fragments/show-validation-errors/show-validation-errors.component';
+import { ShowValidationErrorsComponent } from './page-fragments/show-validation-errors/show-validation-errors.component';
 import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({

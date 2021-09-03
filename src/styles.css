@@ -58,7 +58,7 @@
 /* Separators */
 
 .sidebar-separator-title {
-    background-color: #333;
+    background-color: #333 !important;
     height: 35px;
 }
 
