@@ -1,14 +1,12 @@
-import { DatePipe, formatDate } from '@angular/common';
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import { MovimentacaoConteinerDTO } from './../../../dto/movimentacao-conteiner.dto';
+import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { MovimentacaoConteinerDTO } from 'src/app/dto/movimentacao-conteiner.dto';
 import { ConteinerService } from 'src/app/services/conteiner.service';
 import { MovimentacaoConteinerService } from 'src/app/services/movimentacao-conteiner.service';
 import { ConteinerDTO } from 'src/app/dto/conteiner.dto';
 import { Subscription } from 'rxjs';
-import * as moment from 'moment';
-
 
 @Component({
   selector: 'app-movimentacao-cadastro',
@@ -53,101 +51,34 @@ export class MovimentacaoCadastroComponent implements OnInit {
 
   }
 
-  // preEdit() {
-  //   //captura id na URL conforme parametro especificado na rota
-  //   const movimentacaoEdit = this.actRoute.snapshot.data['movimentacaoResolverDTO'];
-  //   console.log(movimentacaoEdit)
-
-  //   //verifica se contém um usuario valido
-  //   if (movimentacaoEdit) {
-
-  //     this.movimentacaoDTO = movimentacaoEdit;
-  //     console.log("movimentacaoEdit")
-  //     console.log(movimentacaoEdit)
-  //     console.log("this.movimentacaoDTO")
-  //     console.log(this.movimentacaoDTO)
-
-
-  //     //carrega dados no form para edição
-  //     this.updateForm(this.movimentacaoDTO);
-
-
-  //   }
-  // }
-
-
-
-
   preEdit() {
+    //captura id na URL conforme parametro especificado na rota
+    const movimentacaoEdit = this.actRoute.snapshot.data['resolverMovimentacao'];
 
-    let qtdparamsRecebidos = this.actRoute.snapshot.paramMap.getAll('id').length;
+    //verifica se contém um usuario valido
+    if (movimentacaoEdit) {
 
-    //somente carrega dados no forma para editar
-    //se nao vier parametros ID
-    if (qtdparamsRecebidos != 0) {
-      /**
-       * https://www.youtube.com/watch?v=AEUSrpsAPtw
-       * trecho implementado com base no video Loiane Groner
-       */
-      this.inscricao = this.actRoute.data.subscribe(
-        (movimentacao) => {
+      this.movimentacaoDTO = movimentacaoEdit;
 
-
-          // o atributo "cargoResolver" esta ligado diretamente com o
-          // parametro setado no "app-routing.module.ts"
-          this.movimentacaoDTO = movimentacao.resolverMovimentacao;
-          this.updateForm(this.movimentacaoDTO)
-        }, error => {
-          alert("Ocorreu um erro ao pré carregar os dados para edição de Movimentacao.");
-        });
+      // carrega os dados no form
+      this.formGroup.patchValue(this.movimentacaoDTO);
     }
   }
 
-  /** carrega dados no formulario para edicao */
-  updateForm(movimentacaoDTO: MovimentacaoConteinerDTO) {
-
-
-    console.log(movimentacaoDTO.dataHoraInicio)
-    console.log(movimentacaoDTO.dataHoraFim)
-
-    let formatDateToInput: string = "yyyy-MM-DDTHH:mm";
-    // movimentacaoDTO.dataHoraInicio = moment(movimentacaoDTO.dataHoraInicio).format(formatDateToInput);
-    // movimentacaoDTO.dataHoraFim = moment(movimentacaoDTO.dataHoraFim).format(formatDateToInput);
-
-
-    this.formGroup.patchValue({
-      id: movimentacaoDTO.id,
-      tipoMovimentacao: movimentacaoDTO.tipoMovimentacao,
-      dataHoraInicio: movimentacaoDTO.dataHoraInicio,
-      dataHoraFim: movimentacaoDTO.dataHoraFim,
-      conteiner: movimentacaoDTO.conteiner
-
-    });
-  }
-
-
   // salvar serve para POST e para PUT
   salvar() {
-    console.log(this.formGroup.value)
-
-
 
     if (!this.formGroup.invalid) {
-      let movimentacaoDTO: MovimentacaoConteinerDTO = this.formGroup.value;
-      console.log(movimentacaoDTO.dataHoraInicio)
+      this.movimentacaoDTO = this.formGroup.value;
 
-      movimentacaoDTO.dataHoraInicio = moment(movimentacaoDTO.dataHoraInicio).format('DD/MM/yyyy HH:mm');
-      movimentacaoDTO.dataHoraFim = moment(movimentacaoDTO.dataHoraFim).format('DD/MM/yyyy HH:mm');
-      console.log(movimentacaoDTO.dataHoraInicio)
-
-      this.movimentacaoService.save(movimentacaoDTO)
+      this.movimentacaoService.save(this.movimentacaoDTO)
         .subscribe(response => {
 
-          if (movimentacaoDTO.id == null) {
+          if (this.movimentacaoDTO.id == null) {
 
-            alert(`Movimentacão de Conteiner ${JSON.stringify(movimentacaoDTO.tipoMovimentacao)} cadastrado com sucesso!`);
+            alert(`Movimentacão de Conteiner tipo ${JSON.stringify(this.movimentacaoDTO.tipoMovimentacao)} cadastrado com sucesso!`);
           } else {
-            alert(`Movimentacão de ${JSON.stringify(movimentacaoDTO.tipoMovimentacao)} alterado com sucesso!`);
+            alert(`Movimentacão de Conteiner tipo ${JSON.stringify(this.movimentacaoDTO.tipoMovimentacao)} alterado com sucesso!`);
           }
 
           this.formGroup.reset()

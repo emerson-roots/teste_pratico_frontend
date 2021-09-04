@@ -10,47 +10,59 @@
 
       <section>
         <div>
-            <!-- FORM -->
-            <form class="container" [formGroup]="formGroup">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="dataHoraInicio">Data Hora Inicio</label>
-                      <input [ngClass]="{'input-error': formGroup.get('dataHoraInicio')?.invalid}" type="datetime-local" class="form-control" formControlName="dataHoraInicio" id="dataHoraInicio" placeholder="Data Hora Inicio">
-                        <app-show-validation-errors [formCtrl]="formGroup.get('dataHoraInicio')"></app-show-validation-errors>
-                    </div>
+          <!-- FORM -->
+          <form class="container" [formGroup]="formGroup">
+            <div class="form-row">
 
-                    <div class="form-group col-md-6">
-                        <label for="dataHoraFim">Data e Hora Fim</label>
-                        <input formControlName="dataHoraFim" type="datetime-local"class="form-control" id="dataHoraFim" value="" placeholder="Data Fim">
-                    </div>
-                </div>
+              <div class="form-group col-md-6">
+                <label for="dataHoraInicio">Data e Hora Inicio</label>
+                <input [ngClass]="{'input-error': formGroup.get('dataHoraInicio')?.invalid}" type="datetime"
+                  mask="00/00/0000 00:00" [showMaskTyped]="true" [dropSpecialCharacters]="false" class="form-control"
+                  formControlName="dataHoraInicio" id="dataHoraInicio" placeholder="Data Hora Inicio">
+                <app-show-validation-errors [formCtrl]="formGroup.get('dataHoraInicio')"></app-show-validation-errors>
+              </div>
 
-                <div class="form-row">
 
-                  <div class="form-group col-md-6">
-                    <label for="conteiner">Conteiner</label>
-                    <select formControlName="conteiner" id="conteiner" class="form-control" [compareWith]="compararConteiners">
-                        <option value="">Selecione...</option>
-                        <option *ngFor="let conteiners of conteinerDTO" [ngValue]="conteiners" >{{ conteiners.codigoConteiner }}</option>
-                    </select>
-                </div>
+              <div class="form-group col-md-6">
+                <label for="dataHoraFim">Data e Hora Fim</label>
+                <input [ngClass]="{'input-error': formGroup.get('dataHoraFim')?.invalid}" type="datetime"
+                  mask="00/00/0000 00:00" [showMaskTyped]="true" [dropSpecialCharacters]="false"
+                  formControlName="dataHoraFim" class="form-control" id="dataHoraFim" value="" placeholder="Data Fim">
+                <app-show-validation-errors [formCtrl]="formGroup.get('dataHoraFim')"></app-show-validation-errors>
+              </div>
+            </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="tipoMovimentacao">Tipo Movimentação</label>
-                        <select formControlName="tipoMovimentacao" id="tipoMovimentacao" class="form-control">
-                            <option value="">Selecione...</option>
-                            <option *ngFor="let tipos of tipoMovimentacoes" [ngValue]="tipos">{{ tipos }}</option>
-                        </select>
-                    </div>
+            <div class="form-row">
 
-                </div>
+              <div class="form-group col-md-6">
+                <label for="conteiner">Conteiner</label>
+                <select [ngClass]="{'input-error': formGroup.get('conteiner')?.invalid}" formControlName="conteiner"
+                  id="conteiner" class="form-control" [compareWith]="compararConteiners">
+                  <option value="">Selecione...</option>
+                  <option *ngFor="let conteiners of conteinerDTO" [ngValue]="conteiners">{{ conteiners.codigoConteiner
+                    }}</option>
+                </select>
+                <app-show-validation-errors [formCtrl]="formGroup.get('conteiner')"></app-show-validation-errors>
+              </div>
 
-                <input type="hidden" id="id" name="id" value="" />
-                <button (click)="salvar()" type="submit" class="btn btn-primary">Salvar</button>
-            </form>
+              <div class="form-group col-md-6">
+                <label for="tipoMovimentacao">Tipo Movimentação</label>
+                <select [ngClass]="{'input-error': formGroup.get('tipoMovimentacao')?.invalid}"
+                  formControlName="tipoMovimentacao" id="tipoMovimentacao" class="form-control">
+                  <option value="">Selecione...</option>
+                  <option *ngFor="let tipos of tipoMovimentacoes" [ngValue]="tipos">{{ tipos }}</option>
+                </select>
+                <app-show-validation-errors [formCtrl]="formGroup.get('tipoMovimentacao')"></app-show-validation-errors>
+              </div>
+
+            </div>
+
+            <input type="hidden" id="id" name="id" value="" />
+            <button (click)="salvar()" type="submit" class="btn btn-primary">Salvar</button>
+          </form>
         </div>
 
-    </section>
+      </section>
     </div>
   </div>
   <!-- fim conteudo ng-content -->
