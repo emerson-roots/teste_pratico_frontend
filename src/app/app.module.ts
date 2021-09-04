@@ -17,7 +17,7 @@ import { ShowValidationErrorsComponent } from './page-fragments/show-validation-
 import { NgxMaskModule } from 'ngx-mask';
 import { MovimentacaoConteinerResolverGuard } from './resolver-guard/movimentacao-conteiner-resolver';
 import { MovimentacaoConteinerService } from './services/movimentacao-conteiner.service';
-import { DatePipe } from '@angular/common';
+import { RelatorioComponent } from './pages/movimentacoes-conteiner/relatorio/relatorio.component';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { DatePipe } from '@angular/common';
     MovimentacaoListaComponent,
     SidebarComponent,
     NavbarComponent,
-    ShowValidationErrorsComponent
+    ShowValidationErrorsComponent,
+    RelatorioComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,8 +45,7 @@ import { DatePipe } from '@angular/common';
     ConteinerService,
     MovimentacaoConteinerService,
     ConteinerResolverGuard,
-    MovimentacaoConteinerResolverGuard,
-    DatePipe
+    MovimentacaoConteinerResolverGuard
 
   ],
   bootstrap: [AppComponent],

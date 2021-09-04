@@ -1,5 +1,4 @@
 import { MovimentacaoConteinerDTO } from './../../../dto/movimentacao-conteiner.dto';
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -28,8 +27,7 @@ export class MovimentacaoCadastroComponent implements OnInit {
     private formBuilder: FormBuilder,
     private movimentacaoService: MovimentacaoConteinerService,
     private conteinerService: ConteinerService,
-    private actRoute: ActivatedRoute,
-    private datePipe: DatePipe) {
+    private actRoute: ActivatedRoute) {
 
     const nonWhiteSpaceRegExp: RegExp = new RegExp("\\S");
 

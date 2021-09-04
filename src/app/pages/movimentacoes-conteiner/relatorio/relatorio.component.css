@@ -1,0 +1,18 @@
+/* Relatório - ajusta impressao somente para o conteudo necessario */
+@media print {
+  body * {
+    display: none;
+  }
+  .myDivToPrint {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+    font-size: 19px;
+    line-height: 18px;
+  }
+}

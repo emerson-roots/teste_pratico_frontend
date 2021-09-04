@@ -6,6 +6,7 @@ import { ConteinerCadastroComponent } from './pages/conteiner/conteiner-cadastro
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovimentacaoConteinerResolverGuard } from './resolver-guard/movimentacao-conteiner-resolver';
+import { RelatorioComponent } from './pages/movimentacoes-conteiner/relatorio/relatorio.component';
 
 const routes: Routes = [
   { path: '', component: ConteinerCadastroComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     resolve: {
       resolverMovimentacao: MovimentacaoConteinerResolverGuard
     }
-  }
+  },
+  { path: 'movimentacao/relatorio', component: RelatorioComponent }
 ];
 
 @NgModule({

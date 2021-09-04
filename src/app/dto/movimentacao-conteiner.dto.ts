@@ -5,7 +5,9 @@ export interface MovimentacaoConteinerDTO {
   dataHoraFim: string;
   conteiner: {
     id: number;
+    cliente: string;
     codigoConteiner: string;
+    categoria: string;
   }
 
 }
