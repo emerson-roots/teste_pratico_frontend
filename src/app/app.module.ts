@@ -8,16 +8,16 @@ import { ConteinerCadastroComponent } from './pages/conteiner/conteiner-cadastro
 import { ConteinerListaComponent } from './pages/conteiner/conteiner-lista/conteiner-lista.component';
 import { MovimentacaoCadastroComponent } from './pages/movimentacoes-conteiner/movimentacao-cadastro/movimentacao-cadastro.component';
 import { MovimentacaoListaComponent } from './pages/movimentacoes-conteiner/movimentacao-lista/movimentacao-lista.component';
-import { SidebarComponent } from './page-fragments/sidebar/sidebar.component';
-import { NavbarComponent } from './page-fragments/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConteinerResolverGuard } from './resolver-guard/conteiner-resolver';
-import { ShowValidationErrorsComponent } from './page-fragments/show-validation-errors/show-validation-errors.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { MovimentacaoConteinerResolverGuard } from './resolver-guard/movimentacao-conteiner-resolver';
 import { MovimentacaoConteinerService } from './services/movimentacao-conteiner.service';
 import { RelatorioComponent } from './pages/movimentacoes-conteiner/relatorio/relatorio.component';
+import { NavbarComponent } from './pages/page-fragments/navbar/navbar.component';
+import { ShowValidationErrorsComponent } from './pages/page-fragments/show-validation-errors/show-validation-errors.component';
+import { SidebarComponent } from './pages/page-fragments/sidebar/sidebar.component';
 
 
 @NgModule({

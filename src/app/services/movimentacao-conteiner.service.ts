@@ -47,7 +47,7 @@ export class MovimentacaoConteinerService {
   }
 
   getRelatorio(): Observable<MovimentacaoConteinerDTO[]> {
-    return this.http.get<MovimentacaoConteinerDTO[]>(`${MOVIMENTACAO_CONTEINER_API.baseUrl}/relatorio1`);
+    return this.http.get<MovimentacaoConteinerDTO[]>(`${MOVIMENTACAO_CONTEINER_API.baseUrl}/relatorio`);
   }
 
 
