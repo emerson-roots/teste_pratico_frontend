@@ -1,7 +1,13 @@
 # Sobre o projeto:
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/emerson-roots/teste_pratico_frontend/blob/master/LICENSE)
 
-![NPM](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)  ![NPM](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![NPM](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) ![NPM](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![NPM](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![NPM](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![NPM](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![NPM](https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white)
+![NPM](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) 
+![NPM](https://img.shields.io/badge/Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white) 
+![NPM](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) 
+![NPM](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) 
+![NPM](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white) 
+![NPM](https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=spring&logoColor=white)
 
 Link YouTube para video demonstração do projeto finalizado; 
 - https://youtu.be/DRtIStmbnJE
@@ -30,7 +36,7 @@ movimentação.
 
 No final do relatório deverá conter um sumário com o total de importação / exportação.
 
-# Tecnologias utilizadas:
+# 🛠 Skills utilizadas
 	
 ### FRONTEND
 
@@ -79,7 +85,7 @@ CTRL+C na linha de comando
 ```
 
 
-# Autor
+# 🚀 Autor
 
 *Emerson Melo de Lima*
 
